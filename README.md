@@ -1,4 +1,4 @@
- 🚀 Elevai — AI-Powered Career Coach
+#🚀 Elevai — AI-Powered Career Coach
 
 Elevai is a full-stack AI career coaching platform that helps users navigate their professional journey with personalized, data-driven guidance. From industry insights and resume building to mock interviews and cover letters — Elevai is your intelligent career companion.
 
