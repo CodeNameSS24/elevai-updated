@@ -20,18 +20,12 @@ Elevai is a full-stack AI career coaching platform that helps users navigate the
 
 | Category | Technology |
 |---|---|
-| Framework | Next.js 15 (App Router + Turbopack) |
-| Language | JavaScript |
+| Framework | Next.js 15 |
 | Styling | Tailwind CSS, Shadcn UI, Radix UI |
-| Database | Neon DB (PostgreSQL) |
-| ORM | Prisma |
+| Database | Neon DB (PostgreSQL) ,Prisma |
 | Authentication | Clerk |
 | AI | Google Gemini API |
 | Background Jobs | Inngest |
-| Forms | React Hook Form + Zod |
-| Charts | Recharts |
-| PDF Export | html2pdf.js |
-| Notifications | Sonner |
 
 ---
 
