@@ -1542,10 +1542,10 @@ export namespace Prisma {
     bio?: boolean
     experience?: boolean
     skills?: boolean
-    industryInsight?: boolean | User$industryInsightArgs<ExtArgs>
     assessments?: boolean | User$assessmentsArgs<ExtArgs>
-    resume?: boolean | User$resumeArgs<ExtArgs>
     coverLetter?: boolean | User$coverLetterArgs<ExtArgs>
+    resume?: boolean | User$resumeArgs<ExtArgs>
+    industryInsight?: boolean | User$industryInsightArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1595,10 +1595,10 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clerkUserId" | "email" | "name" | "imageUrl" | "industry" | "createdAt" | "updatedAt" | "bio" | "experience" | "skills", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    industryInsight?: boolean | User$industryInsightArgs<ExtArgs>
     assessments?: boolean | User$assessmentsArgs<ExtArgs>
-    resume?: boolean | User$resumeArgs<ExtArgs>
     coverLetter?: boolean | User$coverLetterArgs<ExtArgs>
+    resume?: boolean | User$resumeArgs<ExtArgs>
+    industryInsight?: boolean | User$industryInsightArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1611,10 +1611,10 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      industryInsight: Prisma.$IndustryInsightPayload<ExtArgs> | null
       assessments: Prisma.$AssessmentPayload<ExtArgs>[]
-      resume: Prisma.$ResumePayload<ExtArgs> | null
       coverLetter: Prisma.$CoverLetterPayload<ExtArgs>[]
+      resume: Prisma.$ResumePayload<ExtArgs> | null
+      industryInsight: Prisma.$IndustryInsightPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2022,10 +2022,10 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    industryInsight<T extends User$industryInsightArgs<ExtArgs> = {}>(args?: Subset<T, User$industryInsightArgs<ExtArgs>>): Prisma__IndustryInsightClient<$Result.GetResult<Prisma.$IndustryInsightPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     assessments<T extends User$assessmentsArgs<ExtArgs> = {}>(args?: Subset<T, User$assessmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssessmentPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
-    resume<T extends User$resumeArgs<ExtArgs> = {}>(args?: Subset<T, User$resumeArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     coverLetter<T extends User$coverLetterArgs<ExtArgs> = {}>(args?: Subset<T, User$coverLetterArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CoverLetterPayload<ExtArgs>, T, "findMany", ClientOptions> | Null>
+    resume<T extends User$resumeArgs<ExtArgs> = {}>(args?: Subset<T, User$resumeArgs<ExtArgs>>): Prisma__ResumeClient<$Result.GetResult<Prisma.$ResumePayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
+    industryInsight<T extends User$industryInsightArgs<ExtArgs> = {}>(args?: Subset<T, User$industryInsightArgs<ExtArgs>>): Prisma__IndustryInsightClient<$Result.GetResult<Prisma.$IndustryInsightPayload<ExtArgs>, T, "findUniqueOrThrow", ClientOptions> | null, null, ExtArgs, ClientOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2450,25 +2450,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.industryInsight
-   */
-  export type User$industryInsightArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the IndustryInsight
-     */
-    select?: IndustryInsightSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the IndustryInsight
-     */
-    omit?: IndustryInsightOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: IndustryInsightInclude<ExtArgs> | null
-    where?: IndustryInsightWhereInput
-  }
-
-  /**
    * User.assessments
    */
   export type User$assessmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2493,25 +2474,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.resume
-   */
-  export type User$resumeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Resume
-     */
-    select?: ResumeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Resume
-     */
-    omit?: ResumeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ResumeInclude<ExtArgs> | null
-    where?: ResumeWhereInput
-  }
-
-  /**
    * User.coverLetter
    */
   export type User$coverLetterArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2533,6 +2495,44 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CoverLetterScalarFieldEnum | CoverLetterScalarFieldEnum[]
+  }
+
+  /**
+   * User.resume
+   */
+  export type User$resumeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Resume
+     */
+    select?: ResumeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Resume
+     */
+    omit?: ResumeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ResumeInclude<ExtArgs> | null
+    where?: ResumeWhereInput
+  }
+
+  /**
+   * User.industryInsight
+   */
+  export type User$industryInsightArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the IndustryInsight
+     */
+    select?: IndustryInsightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the IndustryInsight
+     */
+    omit?: IndustryInsightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: IndustryInsightInclude<ExtArgs> | null
+    where?: IndustryInsightWhereInput
   }
 
   /**
@@ -3675,8 +3675,18 @@ export namespace Prisma {
 
   export type AggregateResume = {
     _count: ResumeCountAggregateOutputType | null
+    _avg: ResumeAvgAggregateOutputType | null
+    _sum: ResumeSumAggregateOutputType | null
     _min: ResumeMinAggregateOutputType | null
     _max: ResumeMaxAggregateOutputType | null
+  }
+
+  export type ResumeAvgAggregateOutputType = {
+    atsScore: number | null
+  }
+
+  export type ResumeSumAggregateOutputType = {
+    atsScore: number | null
   }
 
   export type ResumeMinAggregateOutputType = {
@@ -3685,6 +3695,8 @@ export namespace Prisma {
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    atsScore: number | null
+    feedback: string | null
   }
 
   export type ResumeMaxAggregateOutputType = {
@@ -3693,6 +3705,8 @@ export namespace Prisma {
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    atsScore: number | null
+    feedback: string | null
   }
 
   export type ResumeCountAggregateOutputType = {
@@ -3701,9 +3715,19 @@ export namespace Prisma {
     content: number
     createdAt: number
     updatedAt: number
+    atsScore: number
+    feedback: number
     _all: number
   }
 
+
+  export type ResumeAvgAggregateInputType = {
+    atsScore?: true
+  }
+
+  export type ResumeSumAggregateInputType = {
+    atsScore?: true
+  }
 
   export type ResumeMinAggregateInputType = {
     id?: true
@@ -3711,6 +3735,8 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    atsScore?: true
+    feedback?: true
   }
 
   export type ResumeMaxAggregateInputType = {
@@ -3719,6 +3745,8 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    atsScore?: true
+    feedback?: true
   }
 
   export type ResumeCountAggregateInputType = {
@@ -3727,6 +3755,8 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    atsScore?: true
+    feedback?: true
     _all?: true
   }
 
@@ -3768,6 +3798,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: ResumeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ResumeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: ResumeMinAggregateInputType
@@ -3798,6 +3840,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: ResumeCountAggregateInputType | true
+    _avg?: ResumeAvgAggregateInputType
+    _sum?: ResumeSumAggregateInputType
     _min?: ResumeMinAggregateInputType
     _max?: ResumeMaxAggregateInputType
   }
@@ -3808,7 +3852,11 @@ export namespace Prisma {
     content: string
     createdAt: Date
     updatedAt: Date
+    atsScore: number | null
+    feedback: string | null
     _count: ResumeCountAggregateOutputType | null
+    _avg: ResumeAvgAggregateOutputType | null
+    _sum: ResumeSumAggregateOutputType | null
     _min: ResumeMinAggregateOutputType | null
     _max: ResumeMaxAggregateOutputType | null
   }
@@ -3833,6 +3881,8 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    atsScore?: boolean
+    feedback?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -3842,6 +3892,8 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    atsScore?: boolean
+    feedback?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -3851,6 +3903,8 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    atsScore?: boolean
+    feedback?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["resume"]>
 
@@ -3860,9 +3914,11 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    atsScore?: boolean
+    feedback?: boolean
   }
 
-  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "content" | "createdAt" | "updatedAt", ExtArgs["result"]["resume"]>
+  export type ResumeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "content" | "createdAt" | "updatedAt" | "atsScore" | "feedback", ExtArgs["result"]["resume"]>
   export type ResumeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -3884,6 +3940,8 @@ export namespace Prisma {
       content: string
       createdAt: Date
       updatedAt: Date
+      atsScore: number | null
+      feedback: string | null
     }, ExtArgs["result"]["resume"]>
     composites: {}
   }
@@ -4313,6 +4371,8 @@ export namespace Prisma {
     readonly content: FieldRef<"Resume", 'String'>
     readonly createdAt: FieldRef<"Resume", 'DateTime'>
     readonly updatedAt: FieldRef<"Resume", 'DateTime'>
+    readonly atsScore: FieldRef<"Resume", 'Float'>
+    readonly feedback: FieldRef<"Resume", 'String'>
   }
     
 
@@ -7004,7 +7064,9 @@ export namespace Prisma {
     userId: 'userId',
     content: 'content',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    atsScore: 'atsScore',
+    feedback: 'feedback'
   };
 
   export type ResumeScalarFieldEnum = (typeof ResumeScalarFieldEnum)[keyof typeof ResumeScalarFieldEnum]
@@ -7158,10 +7220,10 @@ export namespace Prisma {
     bio?: StringNullableFilter<"User"> | string | null
     experience?: IntNullableFilter<"User"> | number | null
     skills?: StringNullableListFilter<"User">
-    industryInsight?: XOR<IndustryInsightNullableScalarRelationFilter, IndustryInsightWhereInput> | null
     assessments?: AssessmentListRelationFilter
-    resume?: XOR<ResumeNullableScalarRelationFilter, ResumeWhereInput> | null
     coverLetter?: CoverLetterListRelationFilter
+    resume?: XOR<ResumeNullableScalarRelationFilter, ResumeWhereInput> | null
+    industryInsight?: XOR<IndustryInsightNullableScalarRelationFilter, IndustryInsightWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7176,10 +7238,10 @@ export namespace Prisma {
     bio?: SortOrderInput | SortOrder
     experience?: SortOrderInput | SortOrder
     skills?: SortOrder
-    industryInsight?: IndustryInsightOrderByWithRelationInput
     assessments?: AssessmentOrderByRelationAggregateInput
-    resume?: ResumeOrderByWithRelationInput
     coverLetter?: CoverLetterOrderByRelationAggregateInput
+    resume?: ResumeOrderByWithRelationInput
+    industryInsight?: IndustryInsightOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7197,10 +7259,10 @@ export namespace Prisma {
     bio?: StringNullableFilter<"User"> | string | null
     experience?: IntNullableFilter<"User"> | number | null
     skills?: StringNullableListFilter<"User">
-    industryInsight?: XOR<IndustryInsightNullableScalarRelationFilter, IndustryInsightWhereInput> | null
     assessments?: AssessmentListRelationFilter
-    resume?: XOR<ResumeNullableScalarRelationFilter, ResumeWhereInput> | null
     coverLetter?: CoverLetterListRelationFilter
+    resume?: XOR<ResumeNullableScalarRelationFilter, ResumeWhereInput> | null
+    industryInsight?: XOR<IndustryInsightNullableScalarRelationFilter, IndustryInsightWhereInput> | null
   }, "id" | "clerkUserId" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7320,6 +7382,8 @@ export namespace Prisma {
     content?: StringFilter<"Resume"> | string
     createdAt?: DateTimeFilter<"Resume"> | Date | string
     updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    atsScore?: FloatNullableFilter<"Resume"> | number | null
+    feedback?: StringNullableFilter<"Resume"> | string | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -7329,6 +7393,8 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    atsScore?: SortOrderInput | SortOrder
+    feedback?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -7341,6 +7407,8 @@ export namespace Prisma {
     content?: StringFilter<"Resume"> | string
     createdAt?: DateTimeFilter<"Resume"> | Date | string
     updatedAt?: DateTimeFilter<"Resume"> | Date | string
+    atsScore?: FloatNullableFilter<"Resume"> | number | null
+    feedback?: StringNullableFilter<"Resume"> | string | null
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id" | "userId">
 
@@ -7350,9 +7418,13 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    atsScore?: SortOrderInput | SortOrder
+    feedback?: SortOrderInput | SortOrder
     _count?: ResumeCountOrderByAggregateInput
+    _avg?: ResumeAvgOrderByAggregateInput
     _max?: ResumeMaxOrderByAggregateInput
     _min?: ResumeMinOrderByAggregateInput
+    _sum?: ResumeSumOrderByAggregateInput
   }
 
   export type ResumeScalarWhereWithAggregatesInput = {
@@ -7364,6 +7436,8 @@ export namespace Prisma {
     content?: StringWithAggregatesFilter<"Resume"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Resume"> | Date | string
+    atsScore?: FloatNullableWithAggregatesFilter<"Resume"> | number | null
+    feedback?: StringNullableWithAggregatesFilter<"Resume"> | string | null
   }
 
   export type CoverLetterWhereInput = {
@@ -7534,10 +7608,10 @@ export namespace Prisma {
     bio?: string | null
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
-    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
     assessments?: AssessmentCreateNestedManyWithoutUserInput
-    resume?: ResumeCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterCreateNestedManyWithoutUserInput
+    resume?: ResumeCreateNestedOneWithoutUserInput
+    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7553,8 +7627,8 @@ export namespace Prisma {
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
     assessments?: AssessmentUncheckedCreateNestedManyWithoutUserInput
-    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterUncheckedCreateNestedManyWithoutUserInput
+    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -7568,10 +7642,10 @@ export namespace Prisma {
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
-    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
     assessments?: AssessmentUpdateManyWithoutUserNestedInput
-    resume?: ResumeUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUpdateManyWithoutUserNestedInput
+    resume?: ResumeUpdateOneWithoutUserNestedInput
+    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7587,8 +7661,8 @@ export namespace Prisma {
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
     assessments?: AssessmentUncheckedUpdateManyWithoutUserNestedInput
-    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUncheckedUpdateManyWithoutUserNestedInput
+    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7713,6 +7787,8 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    atsScore?: number | null
+    feedback?: string | null
     user: UserCreateNestedOneWithoutResumeInput
   }
 
@@ -7722,6 +7798,8 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    atsScore?: number | null
+    feedback?: string | null
   }
 
   export type ResumeUpdateInput = {
@@ -7729,6 +7807,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
     user?: UserUpdateOneRequiredWithoutResumeNestedInput
   }
 
@@ -7738,6 +7818,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeCreateManyInput = {
@@ -7746,6 +7828,8 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    atsScore?: number | null
+    feedback?: string | null
   }
 
   export type ResumeUpdateManyMutationInput = {
@@ -7753,6 +7837,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ResumeUncheckedUpdateManyInput = {
@@ -7761,6 +7847,8 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type CoverLetterCreateInput = {
@@ -8001,15 +8089,16 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
-  export type IndustryInsightNullableScalarRelationFilter = {
-    is?: IndustryInsightWhereInput | null
-    isNot?: IndustryInsightWhereInput | null
-  }
-
   export type AssessmentListRelationFilter = {
     every?: AssessmentWhereInput
     some?: AssessmentWhereInput
     none?: AssessmentWhereInput
+  }
+
+  export type CoverLetterListRelationFilter = {
+    every?: CoverLetterWhereInput
+    some?: CoverLetterWhereInput
+    none?: CoverLetterWhereInput
   }
 
   export type ResumeNullableScalarRelationFilter = {
@@ -8017,10 +8106,9 @@ export namespace Prisma {
     isNot?: ResumeWhereInput | null
   }
 
-  export type CoverLetterListRelationFilter = {
-    every?: CoverLetterWhereInput
-    some?: CoverLetterWhereInput
-    none?: CoverLetterWhereInput
+  export type IndustryInsightNullableScalarRelationFilter = {
+    is?: IndustryInsightWhereInput | null
+    isNot?: IndustryInsightWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -8235,12 +8323,29 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type ResumeCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    atsScore?: SortOrder
+    feedback?: SortOrder
+  }
+
+  export type ResumeAvgOrderByAggregateInput = {
+    atsScore?: SortOrder
   }
 
   export type ResumeMaxOrderByAggregateInput = {
@@ -8249,6 +8354,8 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    atsScore?: SortOrder
+    feedback?: SortOrder
   }
 
   export type ResumeMinOrderByAggregateInput = {
@@ -8257,6 +8364,28 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    atsScore?: SortOrder
+    feedback?: SortOrder
+  }
+
+  export type ResumeSumOrderByAggregateInput = {
+    atsScore?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type CoverLetterCountOrderByAggregateInput = {
@@ -8348,23 +8477,11 @@ export namespace Prisma {
     set: string[]
   }
 
-  export type IndustryInsightCreateNestedOneWithoutUsersInput = {
-    create?: XOR<IndustryInsightCreateWithoutUsersInput, IndustryInsightUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: IndustryInsightCreateOrConnectWithoutUsersInput
-    connect?: IndustryInsightWhereUniqueInput
-  }
-
   export type AssessmentCreateNestedManyWithoutUserInput = {
     create?: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput> | AssessmentCreateWithoutUserInput[] | AssessmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AssessmentCreateOrConnectWithoutUserInput | AssessmentCreateOrConnectWithoutUserInput[]
     createMany?: AssessmentCreateManyUserInputEnvelope
     connect?: AssessmentWhereUniqueInput | AssessmentWhereUniqueInput[]
-  }
-
-  export type ResumeCreateNestedOneWithoutUserInput = {
-    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
-    connect?: ResumeWhereUniqueInput
   }
 
   export type CoverLetterCreateNestedManyWithoutUserInput = {
@@ -8374,6 +8491,18 @@ export namespace Prisma {
     connect?: CoverLetterWhereUniqueInput | CoverLetterWhereUniqueInput[]
   }
 
+  export type ResumeCreateNestedOneWithoutUserInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
+    connect?: ResumeWhereUniqueInput
+  }
+
+  export type IndustryInsightCreateNestedOneWithoutUsersInput = {
+    create?: XOR<IndustryInsightCreateWithoutUsersInput, IndustryInsightUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: IndustryInsightCreateOrConnectWithoutUsersInput
+    connect?: IndustryInsightWhereUniqueInput
+  }
+
   export type AssessmentUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput> | AssessmentCreateWithoutUserInput[] | AssessmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AssessmentCreateOrConnectWithoutUserInput | AssessmentCreateOrConnectWithoutUserInput[]
@@ -8381,17 +8510,17 @@ export namespace Prisma {
     connect?: AssessmentWhereUniqueInput | AssessmentWhereUniqueInput[]
   }
 
-  export type ResumeUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
-    connect?: ResumeWhereUniqueInput
-  }
-
   export type CoverLetterUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<CoverLetterCreateWithoutUserInput, CoverLetterUncheckedCreateWithoutUserInput> | CoverLetterCreateWithoutUserInput[] | CoverLetterUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CoverLetterCreateOrConnectWithoutUserInput | CoverLetterCreateOrConnectWithoutUserInput[]
     createMany?: CoverLetterCreateManyUserInputEnvelope
     connect?: CoverLetterWhereUniqueInput | CoverLetterWhereUniqueInput[]
+  }
+
+  export type ResumeUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
+    connect?: ResumeWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -8419,16 +8548,6 @@ export namespace Prisma {
     push?: string | string[]
   }
 
-  export type IndustryInsightUpdateOneWithoutUsersNestedInput = {
-    create?: XOR<IndustryInsightCreateWithoutUsersInput, IndustryInsightUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: IndustryInsightCreateOrConnectWithoutUsersInput
-    upsert?: IndustryInsightUpsertWithoutUsersInput
-    disconnect?: IndustryInsightWhereInput | boolean
-    delete?: IndustryInsightWhereInput | boolean
-    connect?: IndustryInsightWhereUniqueInput
-    update?: XOR<XOR<IndustryInsightUpdateToOneWithWhereWithoutUsersInput, IndustryInsightUpdateWithoutUsersInput>, IndustryInsightUncheckedUpdateWithoutUsersInput>
-  }
-
   export type AssessmentUpdateManyWithoutUserNestedInput = {
     create?: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput> | AssessmentCreateWithoutUserInput[] | AssessmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AssessmentCreateOrConnectWithoutUserInput | AssessmentCreateOrConnectWithoutUserInput[]
@@ -8441,16 +8560,6 @@ export namespace Prisma {
     update?: AssessmentUpdateWithWhereUniqueWithoutUserInput | AssessmentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AssessmentUpdateManyWithWhereWithoutUserInput | AssessmentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
-  }
-
-  export type ResumeUpdateOneWithoutUserNestedInput = {
-    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
-    upsert?: ResumeUpsertWithoutUserInput
-    disconnect?: ResumeWhereInput | boolean
-    delete?: ResumeWhereInput | boolean
-    connect?: ResumeWhereUniqueInput
-    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutUserInput, ResumeUpdateWithoutUserInput>, ResumeUncheckedUpdateWithoutUserInput>
   }
 
   export type CoverLetterUpdateManyWithoutUserNestedInput = {
@@ -8467,6 +8576,26 @@ export namespace Prisma {
     deleteMany?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
   }
 
+  export type ResumeUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
+    upsert?: ResumeUpsertWithoutUserInput
+    disconnect?: ResumeWhereInput | boolean
+    delete?: ResumeWhereInput | boolean
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutUserInput, ResumeUpdateWithoutUserInput>, ResumeUncheckedUpdateWithoutUserInput>
+  }
+
+  export type IndustryInsightUpdateOneWithoutUsersNestedInput = {
+    create?: XOR<IndustryInsightCreateWithoutUsersInput, IndustryInsightUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: IndustryInsightCreateOrConnectWithoutUsersInput
+    upsert?: IndustryInsightUpsertWithoutUsersInput
+    disconnect?: IndustryInsightWhereInput | boolean
+    delete?: IndustryInsightWhereInput | boolean
+    connect?: IndustryInsightWhereUniqueInput
+    update?: XOR<XOR<IndustryInsightUpdateToOneWithWhereWithoutUsersInput, IndustryInsightUpdateWithoutUsersInput>, IndustryInsightUncheckedUpdateWithoutUsersInput>
+  }
+
   export type AssessmentUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput> | AssessmentCreateWithoutUserInput[] | AssessmentUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AssessmentCreateOrConnectWithoutUserInput | AssessmentCreateOrConnectWithoutUserInput[]
@@ -8481,16 +8610,6 @@ export namespace Prisma {
     deleteMany?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
   }
 
-  export type ResumeUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
-    upsert?: ResumeUpsertWithoutUserInput
-    disconnect?: ResumeWhereInput | boolean
-    delete?: ResumeWhereInput | boolean
-    connect?: ResumeWhereUniqueInput
-    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutUserInput, ResumeUpdateWithoutUserInput>, ResumeUncheckedUpdateWithoutUserInput>
-  }
-
   export type CoverLetterUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<CoverLetterCreateWithoutUserInput, CoverLetterUncheckedCreateWithoutUserInput> | CoverLetterCreateWithoutUserInput[] | CoverLetterUncheckedCreateWithoutUserInput[]
     connectOrCreate?: CoverLetterCreateOrConnectWithoutUserInput | CoverLetterCreateOrConnectWithoutUserInput[]
@@ -8503,6 +8622,16 @@ export namespace Prisma {
     update?: CoverLetterUpdateWithWhereUniqueWithoutUserInput | CoverLetterUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: CoverLetterUpdateManyWithWhereWithoutUserInput | CoverLetterUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
+  }
+
+  export type ResumeUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ResumeCreateOrConnectWithoutUserInput
+    upsert?: ResumeUpsertWithoutUserInput
+    disconnect?: ResumeWhereInput | boolean
+    delete?: ResumeWhereInput | boolean
+    connect?: ResumeWhereUniqueInput
+    update?: XOR<XOR<ResumeUpdateToOneWithWhereWithoutUserInput, ResumeUpdateWithoutUserInput>, ResumeUncheckedUpdateWithoutUserInput>
   }
 
   export type AssessmentCreatequestionsInput = {
@@ -8540,6 +8669,14 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutResumeInput, UserUncheckedCreateWithoutResumeInput>
     connectOrCreate?: UserCreateOrConnectWithoutResumeInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UserUpdateOneRequiredWithoutResumeNestedInput = {
@@ -8805,6 +8942,105 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type AssessmentCreateWithoutUserInput = {
+    id?: string
+    quizScore: number
+    questions?: AssessmentCreatequestionsInput | InputJsonValue[]
+    category: string
+    improvementTip?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AssessmentUncheckedCreateWithoutUserInput = {
+    id?: string
+    quizScore: number
+    questions?: AssessmentCreatequestionsInput | InputJsonValue[]
+    category: string
+    improvementTip?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AssessmentCreateOrConnectWithoutUserInput = {
+    where: AssessmentWhereUniqueInput
+    create: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput>
+  }
+
+  export type AssessmentCreateManyUserInputEnvelope = {
+    data: AssessmentCreateManyUserInput | AssessmentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CoverLetterCreateWithoutUserInput = {
+    id?: string
+    content: string
+    jobDescription?: string | null
+    companyName: string
+    jobTitle: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CoverLetterUncheckedCreateWithoutUserInput = {
+    id?: string
+    content: string
+    jobDescription?: string | null
+    companyName: string
+    jobTitle: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CoverLetterCreateOrConnectWithoutUserInput = {
+    where: CoverLetterWhereUniqueInput
+    create: XOR<CoverLetterCreateWithoutUserInput, CoverLetterUncheckedCreateWithoutUserInput>
+  }
+
+  export type CoverLetterCreateManyUserInputEnvelope = {
+    data: CoverLetterCreateManyUserInput | CoverLetterCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ResumeCreateWithoutUserInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    atsScore?: number | null
+    feedback?: string | null
+  }
+
+  export type ResumeUncheckedCreateWithoutUserInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    atsScore?: number | null
+    feedback?: string | null
+  }
+
+  export type ResumeCreateOrConnectWithoutUserInput = {
+    where: ResumeWhereUniqueInput
+    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+  }
+
   export type IndustryInsightCreateWithoutUsersInput = {
     id?: string
     industry: string
@@ -8838,83 +9074,93 @@ export namespace Prisma {
     create: XOR<IndustryInsightCreateWithoutUsersInput, IndustryInsightUncheckedCreateWithoutUsersInput>
   }
 
-  export type AssessmentCreateWithoutUserInput = {
-    id?: string
-    quizScore: number
-    questions?: AssessmentCreatequestionsInput | InputJsonValue[]
-    category: string
-    improvementTip?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type AssessmentUncheckedCreateWithoutUserInput = {
-    id?: string
-    quizScore: number
-    questions?: AssessmentCreatequestionsInput | InputJsonValue[]
-    category: string
-    improvementTip?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type AssessmentCreateOrConnectWithoutUserInput = {
+  export type AssessmentUpsertWithWhereUniqueWithoutUserInput = {
     where: AssessmentWhereUniqueInput
+    update: XOR<AssessmentUpdateWithoutUserInput, AssessmentUncheckedUpdateWithoutUserInput>
     create: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput>
   }
 
-  export type AssessmentCreateManyUserInputEnvelope = {
-    data: AssessmentCreateManyUserInput | AssessmentCreateManyUserInput[]
-    skipDuplicates?: boolean
+  export type AssessmentUpdateWithWhereUniqueWithoutUserInput = {
+    where: AssessmentWhereUniqueInput
+    data: XOR<AssessmentUpdateWithoutUserInput, AssessmentUncheckedUpdateWithoutUserInput>
   }
 
-  export type ResumeCreateWithoutUserInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type AssessmentUpdateManyWithWhereWithoutUserInput = {
+    where: AssessmentScalarWhereInput
+    data: XOR<AssessmentUpdateManyMutationInput, AssessmentUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type ResumeUncheckedCreateWithoutUserInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type AssessmentScalarWhereInput = {
+    AND?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
+    OR?: AssessmentScalarWhereInput[]
+    NOT?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
+    id?: StringFilter<"Assessment"> | string
+    userId?: StringFilter<"Assessment"> | string
+    quizScore?: FloatFilter<"Assessment"> | number
+    questions?: JsonNullableListFilter<"Assessment">
+    category?: StringFilter<"Assessment"> | string
+    improvementTip?: StringNullableFilter<"Assessment"> | string | null
+    createdAt?: DateTimeFilter<"Assessment"> | Date | string
+    updatedAt?: DateTimeFilter<"Assessment"> | Date | string
   }
 
-  export type ResumeCreateOrConnectWithoutUserInput = {
-    where: ResumeWhereUniqueInput
-    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-  }
-
-  export type CoverLetterCreateWithoutUserInput = {
-    id?: string
-    content: string
-    jobDescription?: string | null
-    companyName: string
-    jobTitle: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CoverLetterUncheckedCreateWithoutUserInput = {
-    id?: string
-    content: string
-    jobDescription?: string | null
-    companyName: string
-    jobTitle: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CoverLetterCreateOrConnectWithoutUserInput = {
+  export type CoverLetterUpsertWithWhereUniqueWithoutUserInput = {
     where: CoverLetterWhereUniqueInput
+    update: XOR<CoverLetterUpdateWithoutUserInput, CoverLetterUncheckedUpdateWithoutUserInput>
     create: XOR<CoverLetterCreateWithoutUserInput, CoverLetterUncheckedCreateWithoutUserInput>
   }
 
-  export type CoverLetterCreateManyUserInputEnvelope = {
-    data: CoverLetterCreateManyUserInput | CoverLetterCreateManyUserInput[]
-    skipDuplicates?: boolean
+  export type CoverLetterUpdateWithWhereUniqueWithoutUserInput = {
+    where: CoverLetterWhereUniqueInput
+    data: XOR<CoverLetterUpdateWithoutUserInput, CoverLetterUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CoverLetterUpdateManyWithWhereWithoutUserInput = {
+    where: CoverLetterScalarWhereInput
+    data: XOR<CoverLetterUpdateManyMutationInput, CoverLetterUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CoverLetterScalarWhereInput = {
+    AND?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
+    OR?: CoverLetterScalarWhereInput[]
+    NOT?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
+    id?: StringFilter<"CoverLetter"> | string
+    userId?: StringFilter<"CoverLetter"> | string
+    content?: StringFilter<"CoverLetter"> | string
+    jobDescription?: StringNullableFilter<"CoverLetter"> | string | null
+    companyName?: StringFilter<"CoverLetter"> | string
+    jobTitle?: StringFilter<"CoverLetter"> | string
+    createdAt?: DateTimeFilter<"CoverLetter"> | Date | string
+    updatedAt?: DateTimeFilter<"CoverLetter"> | Date | string
+  }
+
+  export type ResumeUpsertWithoutUserInput = {
+    update: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
+    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
+    where?: ResumeWhereInput
+  }
+
+  export type ResumeUpdateToOneWithWhereWithoutUserInput = {
+    where?: ResumeWhereInput
+    data: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ResumeUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ResumeUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    atsScore?: NullableFloatFieldUpdateOperationsInput | number | null
+    feedback?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IndustryInsightUpsertWithoutUsersInput = {
@@ -8956,91 +9202,6 @@ export namespace Prisma {
     nextUpdate?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AssessmentUpsertWithWhereUniqueWithoutUserInput = {
-    where: AssessmentWhereUniqueInput
-    update: XOR<AssessmentUpdateWithoutUserInput, AssessmentUncheckedUpdateWithoutUserInput>
-    create: XOR<AssessmentCreateWithoutUserInput, AssessmentUncheckedCreateWithoutUserInput>
-  }
-
-  export type AssessmentUpdateWithWhereUniqueWithoutUserInput = {
-    where: AssessmentWhereUniqueInput
-    data: XOR<AssessmentUpdateWithoutUserInput, AssessmentUncheckedUpdateWithoutUserInput>
-  }
-
-  export type AssessmentUpdateManyWithWhereWithoutUserInput = {
-    where: AssessmentScalarWhereInput
-    data: XOR<AssessmentUpdateManyMutationInput, AssessmentUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type AssessmentScalarWhereInput = {
-    AND?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
-    OR?: AssessmentScalarWhereInput[]
-    NOT?: AssessmentScalarWhereInput | AssessmentScalarWhereInput[]
-    id?: StringFilter<"Assessment"> | string
-    userId?: StringFilter<"Assessment"> | string
-    quizScore?: FloatFilter<"Assessment"> | number
-    questions?: JsonNullableListFilter<"Assessment">
-    category?: StringFilter<"Assessment"> | string
-    improvementTip?: StringNullableFilter<"Assessment"> | string | null
-    createdAt?: DateTimeFilter<"Assessment"> | Date | string
-    updatedAt?: DateTimeFilter<"Assessment"> | Date | string
-  }
-
-  export type ResumeUpsertWithoutUserInput = {
-    update: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
-    create: XOR<ResumeCreateWithoutUserInput, ResumeUncheckedCreateWithoutUserInput>
-    where?: ResumeWhereInput
-  }
-
-  export type ResumeUpdateToOneWithWhereWithoutUserInput = {
-    where?: ResumeWhereInput
-    data: XOR<ResumeUpdateWithoutUserInput, ResumeUncheckedUpdateWithoutUserInput>
-  }
-
-  export type ResumeUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ResumeUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CoverLetterUpsertWithWhereUniqueWithoutUserInput = {
-    where: CoverLetterWhereUniqueInput
-    update: XOR<CoverLetterUpdateWithoutUserInput, CoverLetterUncheckedUpdateWithoutUserInput>
-    create: XOR<CoverLetterCreateWithoutUserInput, CoverLetterUncheckedCreateWithoutUserInput>
-  }
-
-  export type CoverLetterUpdateWithWhereUniqueWithoutUserInput = {
-    where: CoverLetterWhereUniqueInput
-    data: XOR<CoverLetterUpdateWithoutUserInput, CoverLetterUncheckedUpdateWithoutUserInput>
-  }
-
-  export type CoverLetterUpdateManyWithWhereWithoutUserInput = {
-    where: CoverLetterScalarWhereInput
-    data: XOR<CoverLetterUpdateManyMutationInput, CoverLetterUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type CoverLetterScalarWhereInput = {
-    AND?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
-    OR?: CoverLetterScalarWhereInput[]
-    NOT?: CoverLetterScalarWhereInput | CoverLetterScalarWhereInput[]
-    id?: StringFilter<"CoverLetter"> | string
-    userId?: StringFilter<"CoverLetter"> | string
-    content?: StringFilter<"CoverLetter"> | string
-    jobDescription?: StringNullableFilter<"CoverLetter"> | string | null
-    companyName?: StringFilter<"CoverLetter"> | string
-    jobTitle?: StringFilter<"CoverLetter"> | string
-    createdAt?: DateTimeFilter<"CoverLetter"> | Date | string
-    updatedAt?: DateTimeFilter<"CoverLetter"> | Date | string
-  }
-
   export type UserCreateWithoutAssessmentsInput = {
     id?: string
     clerkUserId: string
@@ -9052,9 +9213,9 @@ export namespace Prisma {
     bio?: string | null
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
-    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
-    resume?: ResumeCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterCreateNestedManyWithoutUserInput
+    resume?: ResumeCreateNestedOneWithoutUserInput
+    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutAssessmentsInput = {
@@ -9069,8 +9230,8 @@ export namespace Prisma {
     bio?: string | null
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
-    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterUncheckedCreateNestedManyWithoutUserInput
+    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAssessmentsInput = {
@@ -9100,9 +9261,9 @@ export namespace Prisma {
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
-    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
-    resume?: ResumeUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUpdateManyWithoutUserNestedInput
+    resume?: ResumeUpdateOneWithoutUserNestedInput
+    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAssessmentsInput = {
@@ -9117,8 +9278,8 @@ export namespace Prisma {
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
-    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUncheckedUpdateManyWithoutUserNestedInput
+    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateWithoutResumeInput = {
@@ -9132,9 +9293,9 @@ export namespace Prisma {
     bio?: string | null
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
-    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
     assessments?: AssessmentCreateNestedManyWithoutUserInput
     coverLetter?: CoverLetterCreateNestedManyWithoutUserInput
+    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutResumeInput = {
@@ -9180,9 +9341,9 @@ export namespace Prisma {
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
-    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
     assessments?: AssessmentUpdateManyWithoutUserNestedInput
     coverLetter?: CoverLetterUpdateManyWithoutUserNestedInput
+    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutResumeInput = {
@@ -9212,9 +9373,9 @@ export namespace Prisma {
     bio?: string | null
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
-    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
     assessments?: AssessmentCreateNestedManyWithoutUserInput
     resume?: ResumeCreateNestedOneWithoutUserInput
+    industryInsight?: IndustryInsightCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutCoverLetterInput = {
@@ -9260,9 +9421,9 @@ export namespace Prisma {
     bio?: NullableStringFieldUpdateOperationsInput | string | null
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
-    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
     assessments?: AssessmentUpdateManyWithoutUserNestedInput
     resume?: ResumeUpdateOneWithoutUserNestedInput
+    industryInsight?: IndustryInsightUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCoverLetterInput = {
@@ -9293,8 +9454,8 @@ export namespace Prisma {
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
     assessments?: AssessmentCreateNestedManyWithoutUserInput
-    resume?: ResumeCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterCreateNestedManyWithoutUserInput
+    resume?: ResumeCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutIndustryInsightInput = {
@@ -9309,8 +9470,8 @@ export namespace Prisma {
     experience?: number | null
     skills?: UserCreateskillsInput | string[]
     assessments?: AssessmentUncheckedCreateNestedManyWithoutUserInput
-    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
     coverLetter?: CoverLetterUncheckedCreateNestedManyWithoutUserInput
+    resume?: ResumeUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutIndustryInsightInput = {
@@ -9461,8 +9622,8 @@ export namespace Prisma {
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
     assessments?: AssessmentUpdateManyWithoutUserNestedInput
-    resume?: ResumeUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUpdateManyWithoutUserNestedInput
+    resume?: ResumeUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutIndustryInsightInput = {
@@ -9477,8 +9638,8 @@ export namespace Prisma {
     experience?: NullableIntFieldUpdateOperationsInput | number | null
     skills?: UserUpdateskillsInput | string[]
     assessments?: AssessmentUncheckedUpdateManyWithoutUserNestedInput
-    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
     coverLetter?: CoverLetterUncheckedUpdateManyWithoutUserNestedInput
+    resume?: ResumeUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutIndustryInsightInput = {
