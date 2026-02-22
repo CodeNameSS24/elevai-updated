@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const imageRef = useRef(null);
@@ -30,46 +30,41 @@ const HeroSection = () => {
     <section className="w-full pt-36 md:pt-48 pb-10">
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
-          <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl 
-          gradient-title">
+          <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient-title animate-gradient">
             Your AI Career Coach for
             <br />
             Professional Success
           </h1>
           <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
-            Advance your career with personalized guidance, interview prep and
-            AI-powered tools for job success
+            Advance your career with personalized guidance, interview prep, and
+            AI-powered tools for job success.
           </p>
         </div>
-
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
-            <Button className="px-8 ">
+            <Button size="lg" className="px-8">
               Get Started
             </Button>
           </Link>
-          <Link href="https://www.youtube.com/roadsidecoder">
-            <Button className="px-8" variant="outline">
-              Get Started
+          <Link href="https://www.youtube.com/results?search_query=how+to+build+resume+and+cover+letter+using+ai">
+            <Button size="lg" variant="outline" className="px-8">
+              Watch Demo
             </Button>
           </Link>
         </div>
-
         <div className="hero-image-wrapper mt-5 md:mt-0">
           <div ref={imageRef} className="hero-image">
             <Image
-              src={"/banner.jpg"}
-              width={1000}
+              src="/banner.jpg"
+              width={1100}
               height={720}
-              alt="Banner Elevai"
+              alt="Dashboard Preview"
               className="rounded-lg shadow-2xl border mx-auto"
               priority
             />
           </div>
         </div>
       </div>
-
-      <div></div>
     </section>
   );
 };
